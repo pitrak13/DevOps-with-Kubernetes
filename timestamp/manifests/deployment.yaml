@@ -14,15 +14,16 @@ spec:
     spec:
       volumes:
         - name: shared-volume
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: pingpong-status-claim
       containers:
         - name: hashgen
-          image: k3d-test-app-reg:5050/hashgen:4
+          image: k3d-test-app-reg:5050/hashgen:test
           volumeMounts:
           - name: shared-volume
             mountPath: /usr/src/app/data
         - name: timestamp
-          image: k3d-test-app-reg:5050/timestamp:4
+          image: k3d-test-app-reg:5050/timestamp:test1
           volumeMounts:
           - name: shared-volume
             mountPath: /usr/src/app/data
