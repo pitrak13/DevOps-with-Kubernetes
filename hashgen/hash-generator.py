@@ -2,9 +2,9 @@ import string
 import random
 import time
 
-def hash_generator(size=16, chars=string.ascii_lowercase + string.ascii_uppercase + string.digits):
+def hash_generator(size=8, chars=string.ascii_lowercase + string.ascii_uppercase + string.digits):
     hash = ''.join(random.choice(chars) for i in range(size))
-    return hash[6:14]
+    return hash
 
 if __name__ == '__main__':
     while True:
