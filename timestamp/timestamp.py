@@ -2,7 +2,7 @@ import time
 
 def timestamp():
     while True:
-        with open("status.txt", "w") as file:
+        with open("data/status.txt", "w") as file:
             current = time.strftime('%Y-%m-%d %H:%M:%S')
             file.write(current)
             print(f"Timestamp <{current}> generated and saved to {file.name}")

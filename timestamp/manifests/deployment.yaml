@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hash-gen-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hashgen-timestamp
+  template:
+    metadata:
+      labels:
+        app: hashgen-timestamp
+    spec:
+      volumes:
+        - name: shared-volume
+          emptyDir: {}
+      containers:
+        - name: hashgen
+          image: k3d-test-app-reg:5050/hashgen:4
+          volumeMounts:
+          - name: shared-volume
+            mountPath: /usr/src/app/data
+        - name: timestamp
+          image: k3d-test-app-reg:5050/timestamp:4
+          volumeMounts:
+          - name: shared-volume
+            mountPath: /usr/src/app/data

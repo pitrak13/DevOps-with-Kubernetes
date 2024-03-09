@@ -8,6 +8,6 @@ def hash_generator(size=16, chars=string.ascii_lowercase + string.ascii_uppercas
 
 if __name__ == '__main__':
     while True:
-        with open("status.txt", "r") as file:
+        with open("data/status.txt", "r") as file:
             print(f"{file.read()}  {hash_generator()}")
         time.sleep(5)
