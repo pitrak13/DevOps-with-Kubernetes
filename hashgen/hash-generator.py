@@ -1,13 +1,20 @@
+from flask import Flask
 import string
 import random
 import time
 
-def hash_generator(size=8, chars=string.ascii_lowercase + string.ascii_uppercase + string.digits):
-    hash = ''.join(random.choice(chars) for i in range(size))
-    return hash
+app = Flask(__name__)
+
+def hash_generator(size=10, chars=string.ascii_lowercase + string.digits):
+    timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+    return timestamp + ' ' + ''.join(random.choice(chars) for i in range(size))
+
+@app.get('/current-status')
+def show_current():
+    with open('data/pongs.txt', 'r') as file:
+        pongs = (f'ping / pongs: {file.read()}')
+    return hash_generator() + '<br>' + pongs
+
 
 if __name__ == '__main__':
-    while True:
-        with open("data/status.txt", "r") as file:
-            print(f"{file.read()}  {hash_generator()}")
-        time.sleep(5)
+   app.run(host='0.0.0.0', port=7998)

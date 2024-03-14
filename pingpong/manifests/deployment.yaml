@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hash-gen-dep
+  name: persisting-data-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hashgen-timestamp
+      app: pingpongs
   template:
     metadata:
       labels:
-        app: hashgen-timestamp
+        app: pingpongs
     spec:
       volumes:
         - name: shared-volume
@@ -18,12 +18,12 @@ spec:
             claimName: pingpong-status-claim
       containers:
         - name: hashgen
-          image: k3d-test-app-reg:5050/hashgen:test
+          image: k3d-test-app-reg:5050/hashgen:1.12
           volumeMounts:
           - name: shared-volume
             mountPath: /usr/src/app/data
-        - name: timestamp
-          image: k3d-test-app-reg:5050/timestamp:test1
+        - name: pingpong
+          image: k3d-test-app-reg:5050/pingpong:1.12
           volumeMounts:
           - name: shared-volume
             mountPath: /usr/src/app/data

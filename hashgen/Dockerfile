@@ -11,8 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt && \
 
 USER appuser
 
-ENTRYPOINT ["python3"]
-
-CMD ["hash-generator.py"]
+CMD ["python3", "hash-generator.py"]
 
 

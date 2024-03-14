@@ -1,22 +1,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pingpong-ingress
+  name: persisting-data-ing
 spec:
   rules:
   - http:
       paths:
-      - path: /pingpong
-        pathType: Prefix
-        backend:
-          service:
-            name: pingpong
-            port:
-              number: 6578
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: webserver
+            name: pingpong-svc
             port:
               number: 2345
+      - path: /current-status
+        pathType: Prefix
+        backend:
+          service:
+            name: hashgen-svc
+            port:
+              number: 3456
