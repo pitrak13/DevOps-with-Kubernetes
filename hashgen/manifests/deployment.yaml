@@ -11,8 +11,11 @@ spec:
   template:
     metadata:
       labels:
+        size: verybig
         app: hashgen
     spec:
       containers:
         - name: hashgen
           image: k3d-test-app-reg:5050/hashgen:112
+      nodeSelector:
+        networkquality: veryfast
