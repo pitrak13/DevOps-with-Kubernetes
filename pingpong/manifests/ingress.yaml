@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: persisting-data-ing
+  name: connecting-pods-ing
 spec:
   rules:
   - http:
@@ -12,11 +12,11 @@ spec:
           service:
             name: pingpong-svc
             port:
-              number: 2345
+              number: 80
       - path: /current-status
         pathType: Prefix
         backend:
           service:
             name: hashgen-svc
             port:
-              number: 3456
+              number: 6578

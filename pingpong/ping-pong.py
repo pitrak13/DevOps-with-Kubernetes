@@ -11,9 +11,7 @@ count = -1
 def get_pongs():
     global count
     count+=1
-    with open('data/pongs.txt', 'w') as file:
-        file.write(str(count))
-    return f"<h1>pong {count}</h1>"
+    return (f"ping / pongs: {count}")
 
 
 

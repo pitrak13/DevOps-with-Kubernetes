@@ -5,8 +5,9 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: pingpongs
+    app: hashgen
   ports:
-    - port: 3456
+    - name: http
+      port: 6578
       protocol: TCP
       targetPort: 7998

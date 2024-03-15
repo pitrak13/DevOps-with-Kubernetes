@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: connecting-pong-dep
+  name: connecting-pods-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pingpong
+      app: hashgen
   template:
     metadata:
       labels:
-        app: pingpong
+        app: hashgen
     spec:
       containers:
-        - name: pingpong
-          image: k3d-test-app-reg:5050/pingpong:112
+        - name: hashgen
+          image: k3d-test-app-reg:5050/hashgen:112
