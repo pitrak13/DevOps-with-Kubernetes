@@ -16,6 +16,9 @@ spec:
     spec:
       containers:
         - name: hashgen
-          image: k3d-test-app-reg:5050/hashgen:112
+          image: k3d-test-app-reg:5050/hashgen:113
+          envFrom:
+          - configMapRef:
+              name: config
       nodeSelector:
         networkquality: veryfast
