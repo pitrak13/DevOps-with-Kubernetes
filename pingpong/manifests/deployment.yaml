@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: myspace
+  namespace: 
   name: stateful-app
 spec:
   replicas: 1
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: pingpong
-          image: k3d-test-app-reg:5050/pingpong:113
+          image: pitrak13/pingpong:113
           envFrom:
             - secretRef:
                 name: postgres-passwd
