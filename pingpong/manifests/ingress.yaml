@@ -1,13 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: myspace
-  name: connecting-pods-ing
+  namespace: 
+  name: deploy-gke-ing
 spec:
   rules:
   - http:
       paths:
-      - path: /pong
+      - path: /pingpong
         pathType: Prefix
         backend:
           service:

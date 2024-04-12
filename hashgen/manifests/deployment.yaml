@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: myspace
+  namespace: 
   name: connecting-pods-dep
 spec:
   replicas: 1
@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: hashgen
-          image: k3d-test-app-reg:5050/hashgen:113
+          image: pitrak13/hashgen:113
           envFrom:
           - configMapRef:
               name: config
       nodeSelector:
-        networkquality: veryfast
+        networkquality:

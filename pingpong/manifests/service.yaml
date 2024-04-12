@@ -4,11 +4,10 @@ metadata:
   namespace:
   name: pingpong-svc
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: pingpong
   ports:
-    - name: http
-      port: 80
+    - port: 80
       protocol: TCP
       targetPort: 7999

@@ -5,7 +5,7 @@ kind: ConfigMap
 metadata:
   creationTimestamp: "2024-03-20T14:44:49Z"
   name: config
-  namespace: myspace
+  namespace: 
   resourceVersion: "37056"
   uid: b16d1a7c-5138-4264-8371-d5c1c066b353
 
