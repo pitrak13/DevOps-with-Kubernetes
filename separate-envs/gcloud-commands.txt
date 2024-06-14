@@ -1,2 +1,2 @@
 gcloud container clusters create dwk-cluster --zone=europe-west6 --num-nodes=2 --disk-size=10
-
+gcloud container clusters delete dwk-cluster --zone=europe-west6
